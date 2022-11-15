@@ -33,6 +33,15 @@ def ticker_bid_ask(session, ticker):
         book = resp.json()
         return book['bids'][0]['price'], book['asks'][0]['price']
     raise ApiException('Authorization error. Check if API key is correct')
+    
+ # Compares prices of RITC, BULL, BEAR ARBITRAGE MEAN REVERSION
+def equilibium(session):
+    resp = session.get('http//localhost:9999/v1securities',
+    #get RITC_ASK(USD) x USD_LAST = RITC_ASK_CAD
+    #get RITC_BID(USD) x USD_LAST = RITC_BID_CAD
+    #BEAR_BID + BULL_BID = RITC_BID_CAD
+    #BEAR_ASK + BULL_ASK = RITC_ASK_CAD
+    
 
 # Where the algorithm is executed
 def main():
